@@ -1,0 +1,46 @@
+{
+  "slug": "ia-game",
+  "title": "IA Game",
+  "description": "Roguelike top-down in Python/pygame con labirinti generati proceduralmente: un secondo personaggio guidato da Q-learning aiuta il giocatore a completare i livelli. Progetto STEAM di team (ITIS 5^B ROB).",
+  "tags": ["python", "pygame", "q-learning", "roguelike", "steam"],
+  "type": "gallery",
+  "demoSlug": null,
+  "featured": false,
+  "images": [
+    {
+      "src": "/projects/ia-game/01.mp4",
+      "alt": "Anteprima labirinto IA Game con agente e giocatore"
+    }
+  ],
+  "roadmap": [
+    {
+      "version": "1.0",
+      "title": "Policy e modello Q-learning",
+      "description": "Ciclo di training sull'ambiente MazeEnv: aggiornamento della Q-table, rifinitura della reward policy e esportazione del modello addestrato (maze_q_learning_model.pkl).",
+      "date": "2025-04-07"
+    },
+    {
+      "version": "0.3",
+      "title": "Alphabot e agente nel gioco",
+      "description": "Integrazione Q-learning nel nuovo ambiente di gioco e architettura client/server Alphabot per far agire l'IA come secondo personaggio in cooperazione con il giocatore.",
+      "date": "2025-03-17"
+    },
+    {
+      "version": "0.2",
+      "title": "Labirinto, pathfinding e condizioni di vittoria",
+      "description": "MazeEnv con generazione casuale delle stanze, pathfinding Dijkstra, penali di movimento, secondo giocatore e porte, condizioni di vittoria (collisione) e sconfitta (timer).",
+      "date": "2025-02-24"
+    },
+    {
+      "version": "0.1",
+      "title": "Core pygame e setup STEAM",
+      "description": "Prima versione del gioco Labitinto: engine pygame, configurazione YAML, struttura moduli (core, world, entities, ai) e documentazione step-by-step del nucleo teorico.",
+      "date": "2025-02-15"
+    }
+  ],
+  "links": {
+    "github": "https://github.com/ITISlucaT/IA_game",
+    "live": null
+  },
+  "createdAt": "2025-04-07"
+}

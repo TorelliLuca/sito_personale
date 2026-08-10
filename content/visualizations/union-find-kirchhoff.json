@@ -1,0 +1,104 @@
+{
+  "slug": "union-find-kirchhoff",
+  "simulation": "union-find-kirchhoff",
+  "featured": true,
+  "tags": ["algorithms", "graphs", "python", "matplotlib"],
+  "createdAt": "2026-08-08",
+  "title": {
+    "it": "Union-Find vs Kirchhoff",
+    "en": "Union-Find vs Kirchhoff"
+  },
+  "subtitle": {
+    "it": "Rilevare un anello in una rete di illuminazione: topologia a grafo contro rango della matrice di incidenza.",
+    "en": "Detecting a loop in a lighting network: graph topology versus incidence-matrix rank."
+  },
+  "description": {
+    "it": "Confronto animato tra Union-Find e l'approccio a matrice di Kirchhoff per verificare se una rete di pali è radiale o contiene un ciclo.",
+    "en": "Animated comparison of Union-Find and the Kirchhoff matrix approach to check whether a pole network is radial or contains a cycle."
+  },
+  "intro": {
+    "it": "Lavorando su Lighting Map, la piattaforma per la gestione della rete di illuminazione pubblica, è emersa una domanda concreta: data una rete di pali collegati da linee elettriche a partire da un quadro, come verifichiamo se è radiale o se contiene un anello? Ne abbiamo discusso con gli ingegneri elettrotecnici dello Studio: la loro proposta, naturale per chi ragiona in termini di circuiti, è costruire una matrice di incidenza stile Kirchhoff e verificarne il rango per individuare i cicli indipendenti. Approccio corretto, ma pesante. Da qui il confronto tra due letture dello stesso problema — elettrotecnica e informatica — e una simulazione che rende visibile il divario.",
+    "en": "While working on Lighting Map, the platform for managing public lighting networks, a concrete question came up: given poles linked by power lines from a cabinet, how do we check whether the network is radial or contains a loop? Discussing it with the studio's electrical engineers, their natural circuit-theory proposal was to build a Kirchhoff-style incidence matrix and check its rank for independent cycles. Correct — but heavy. That led to a comparison between two readings of the same problem — electrical engineering and computer science — and a simulation that makes the gap visible."
+  },
+  "theory": [
+    {
+      "title": {
+        "it": "Due occhi sulla stessa rete",
+        "en": "Two views of the same network"
+      },
+      "body": {
+        "it": "L'approccio elettrotecnico vede una rete fisica retta dalle leggi dei circuiti: la matrice di incidenza A (con voci +1 / −1 per ogni linea) e il calcolo del rango individuano i cicli indipendenti. Funziona, ma calcolare il rango costa O(n³) nel caso generale, con n numero di linee. L'approccio informatico vede invece un grafo e una domanda puramente topologica: questo grafo ha un ciclo, sì o no?",
+        "en": "The electrical-engineering view sees a physical network governed by circuit laws: the incidence matrix A (entries +1 / −1 per line) and its rank identify independent cycles. It works, but computing rank costs O(n³) in general, with n the number of lines. The computer-science view sees a graph and a purely topological question: does this graph have a cycle — yes or no?"
+      },
+      "formulas": [
+        "\\mathrm{rank}(A) \\quad\\text{vs}\\quad \\text{ciclo nel grafo}"
+      ]
+    },
+    {
+      "title": {
+        "it": "Union-Find",
+        "en": "Union-Find"
+      },
+      "body": {
+        "it": "Union-Find (struttura approfondita in Tecniche di Programmazione) risponde così: ogni palo parte come un'isola; ogni linea aggiunta è un ponte tra due isole. Se collega isole diverse, le fonde in un unico arcipelago e la rete resta un albero. Se collega due pali già nello stesso arcipelago, quel ponte ha appena chiuso un anello.",
+        "en": "Union-Find (covered in Programming Techniques) answers like this: each pole starts as an island; each added line is a bridge between two islands. If it joins different islands, it merges them into one archipelago and the network stays a tree. If it joins two poles already in the same archipelago, that bridge has just closed a loop."
+      },
+      "formulas": [
+        "\\mathrm{find}(u) = \\mathrm{find}(v) \\;\\Rightarrow\\; \\text{ciclo}"
+      ]
+    },
+    {
+      "title": {
+        "it": "Complessità: α(n) contro n³",
+        "en": "Complexity: α(n) versus n³"
+      },
+      "body": {
+        "it": "Con path compression (che appiattisce il percorso a ogni ricerca) ogni operazione Union-Find costa un tempo praticamente costante, O(α(n)), dove α è l'inversa della funzione di Ackermann: cresce così lentamente da essere indistinguibile da 1 per qualunque n reale. Il confronto asintotico con il rango della matrice è netto:",
+        "en": "With path compression (flattening the path on every lookup), each Union-Find operation costs nearly constant time, O(α(n)), where α is the inverse Ackermann function: it grows so slowly it is indistinguishable from 1 for any realistic n. The asymptotic contrast with matrix rank is stark:"
+      },
+      "formulas": [
+        "\\text{Union-Find:} \\quad O(m\\,\\alpha(n))",
+        "\\text{Kirchhoff (rango):} \\quad O(m\\,n^{3})"
+      ],
+      "note": {
+        "it": "Su una rete giocattolo da ~30 nodi il tempo cumulativo di Union-Find resta piatto, mentre quello della matrice cresce fino a superare i 15 ms; su una rete reale il divario diventa proibitivo per l'approccio a matrice.",
+        "en": "On a ~30-node toy network, Union-Find's cumulative time stays flat while the matrix approach grows past 15 ms; on a real network the gap becomes prohibitive for the matrix method."
+      }
+    }
+  ],
+  "design": [
+    {
+      "title": {
+        "it": "L'animazione",
+        "en": "The animation"
+      },
+      "body": {
+        "it": "A sinistra la foresta di Union-Find cresce a ogni linea, restando compatta; quando due nodi già collegati vengono ricongiunti, l'algoritmo scopre il ciclo in tempo pressoché costante. A destra lo stesso evento via matrice di incidenza, dove serve ricalcolare il rango a ogni passo. Pannelli dedicati mostrano tempo cumulativo e costo stimato (operazioni e memoria) in scala logaritmica.",
+        "en": "On the left, the Union-Find forest grows with each line and stays compact; when two already-connected nodes are rejoined, the algorithm finds the cycle in nearly constant time. On the right, the same event via the incidence matrix, where rank must be recomputed at every step. Dedicated panels show cumulative time and estimated cost (operations and memory) on a log scale."
+      }
+    },
+    {
+      "title": {
+        "it": "Scaling",
+        "en": "Scaling"
+      },
+      "body": {
+        "it": "Il grafico di scaling confronta tempo di costruzione topologica e costo asintotico osservato al crescere di n: Union-Find resta piatto, Kirchhoff sale con la curva attesa O(m n³). I numeri confermano ciò che la teoria prevede già su reti piccole.",
+        "en": "The scaling chart compares topological build time and observed asymptotic cost as n grows: Union-Find stays flat, Kirchhoff rises with the expected O(m n³) curve. The numbers confirm what theory predicts even on small networks."
+      },
+      "formulas": [
+        "O(m\\,\\alpha(n)) \\quad\\text{vs}\\quad O(m\\,n^{3})"
+      ]
+    },
+    {
+      "title": {
+        "it": "Implementazione e dialogo",
+        "en": "Implementation and dialogue"
+      },
+      "body": {
+        "it": "La simulazione è generata in Python con Matplotlib. Quello che mi porto a casa non è solo la soluzione tecnica, ma il valore del dialogo tra competenze diverse: la stessa rete elettrica, guardata con occhi elettrotecnici o informatici, suggerisce strumenti diversi — e conviene saperli confrontare.",
+        "en": "The simulation is generated in Python with Matplotlib. What I take away is not only the technical solution, but the value of dialogue across disciplines: the same power network, seen through electrical or computer-science eyes, suggests different tools — and it pays to compare them."
+      }
+    }
+  ]
+}

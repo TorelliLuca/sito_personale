@@ -1,0 +1,108 @@
+{
+  "slug": "lorenz",
+  "simulation": "lorenz",
+  "featured": true,
+  "tags": ["math", "chaos", "animation", "ode"],
+  "createdAt": "2026-02-10",
+  "title": {
+    "it": "Attrattore di Lorenz",
+    "en": "Lorenz attractor"
+  },
+  "subtitle": {
+    "it": "Due traiettorie caotiche e la dipendenza sensibile dalle condizioni iniziali.",
+    "en": "Two chaotic trajectories and sensitive dependence on initial conditions."
+  },
+  "description": {
+    "it": "Animazione di due sistemi di Lorenz integrati numericamente con condizioni iniziali leggermente diverse: lo scostamento iniziale regola solo quando le traiettorie si separano in modo macroscopico.",
+    "en": "Animation of two Lorenz systems integrated numerically from slightly different initial conditions: the initial offset only shifts when the trajectories diverge macroscopically."
+  },
+  "intro": {
+    "it": "Come esercizio di approfondimento a partire dai concetti di Analisi I, ho implementato in Python una simulazione dell'attrattore di Lorenz, modello classico della teoria del caos. L'animazione confronta l'evoluzione temporale di due sistemi integrati numericamente a partire da condizioni iniziali distinte — con scostamento relativo dello 0.1% e del 10% — e mostra come, nonostante le equazioni siano deterministiche, un delta iniziale piccolo cambi solo l'istante della separazione macroscopica, non l'esponente di Lyapunov dominante del sistema.",
+    "en": "As a personal follow-up to Calculus I ideas, I implemented a Python simulation of the Lorenz attractor, a classic model in chaos theory. The animation compares the time evolution of two systems integrated numerically from distinct initial conditions — with relative offsets of 0.1% and 10% — and shows that, even though the ODEs are deterministic, a small initial delta only shifts when macroscopic separation appears, not the system's dominant Lyapunov exponent."
+  },
+  "theory": [
+    {
+      "title": {
+        "it": "Il sistema di Lorenz",
+        "en": "The Lorenz system"
+      },
+      "body": {
+        "it": "Edward Lorenz (1963) propose un modello semplificato di convezione atmosferica: tre equazioni differenziali ordinarie accoppiate nello stato (x, y, z). Con i parametri classici σ = 10, ρ = 28, β = 8/3, le traiettorie non convergono a un equilibrio né a un ciclo periodico: si avvolgono su un attrattore strano a forma di farfalla nello spazio delle fasi.",
+        "en": "Edward Lorenz (1963) proposed a simplified model of atmospheric convection: three coupled ordinary differential equations in the state (x, y, z). With the classic parameters σ = 10, ρ = 28, β = 8/3, trajectories neither settle to an equilibrium nor to a periodic orbit: they wind on a strange butterfly-shaped attractor in phase space."
+      },
+      "formulas": [
+        "\\dot{x} = \\sigma(y - x)",
+        "\\dot{y} = x(\\rho - z) - y",
+        "\\dot{z} = xy - \\beta z"
+      ],
+      "note": {
+        "it": "Il flusso è deterministico: a ogni istante lo stato futuro è univocamente determinato dalle condizioni iniziali. Il \"caos\" nasce dalla geometria dell'attrattore, non dal caso.",
+        "en": "The flow is deterministic: at each instant the future state is uniquely fixed by the initial conditions. \"Chaos\" comes from the attractor's geometry, not from randomness."
+      }
+    },
+    {
+      "title": {
+        "it": "Dipendenza sensibile dalle condizioni iniziali",
+        "en": "Sensitive dependence on initial conditions"
+      },
+      "body": {
+        "it": "Su un attrattore caotico, due punti vicini si allontanano in media in modo esponenziale. Se δ(t) è la distanza tra due traiettorie, per tempi intermedi tipicamente",
+        "en": "On a chaotic attractor, nearby points separate on average exponentially. If δ(t) is the distance between two trajectories, for intermediate times one typically has"
+      },
+      "formulas": [
+        "\\delta(t) \\approx \\delta(0)\\,e^{\\lambda t}"
+      ],
+      "note": {
+        "it": "λ > 0 è l'esponente di Lyapunov dominante: misura il tasso di divergenza. Nell'animazione confronto due coppie con δ(0) relativo dello 0.1% e del 10%: cambia solo quando la separazione diventa visibile a occhio, non la pendenza logaritmica della divergenza.",
+        "en": "λ > 0 is the dominant Lyapunov exponent: it measures the divergence rate. In the animation I compare two pairs with relative δ(0) of 0.1% and 10%: only the moment when separation becomes visible changes, not the logarithmic slope of the divergence."
+      },
+      "inlineFormula": "\\lambda = \\lim_{t \\to \\infty} \\frac{1}{t}\\ln\\frac{\\delta(t)}{\\delta(0)}"
+    },
+    {
+      "title": {
+        "it": "Integrazione numerica",
+        "en": "Numerical integration"
+      },
+      "body": {
+        "it": "Le equazioni non ammettono soluzione elementare in forma chiusa: si integrano numericamente a partire da uno stato iniziale. L'animazione fa evolvere in parallelo due copie del sistema con condizioni iniziali leggermente diverse e disegna le traiettorie nello spazio (x, y, z), così la \"farfalla\" e la separazione emergono frame dopo frame.",
+        "en": "The equations have no elementary closed-form solution: they are integrated numerically from an initial state. The animation evolves two copies of the system in parallel with slightly different initial conditions and plots the trajectories in (x, y, z) space, so the \"butterfly\" and the separation emerge frame by frame."
+      },
+      "note": {
+        "it": "La scelta dell'integratore (Eulero, Runge–Kutta, …) influisce su accuratezza e stabilità locale, ma non cancella la sensibilità caotica: errori di troncamento si comportano, a lungo andare, come un piccolo δ(0).",
+        "en": "The integrator choice (Euler, Runge–Kutta, …) affects local accuracy and stability, but does not erase chaotic sensitivity: truncation errors eventually act like a small δ(0)."
+      }
+    }
+  ],
+  "design": [
+    {
+      "title": {
+        "it": "Cosa mostra l'animazione",
+        "en": "What the animation shows"
+      },
+      "body": {
+        "it": "Due sistemi di Lorenz partono da stati vicini e vengono tracciati insieme. All'inizio le curve restano sovrapposte; dopo un tempo che dipende dall'ampiezza del delta iniziale, le traiettorie si separano in modo macroscopico pur restando confinate sull'attrattore. Il messaggio didattico è netto: determinismo ≠ prevedibilità a lungo termine.",
+        "en": "Two Lorenz systems start from nearby states and are drawn together. At first the curves overlap; after a time that depends on the size of the initial delta, the trajectories separate macroscopically while remaining confined to the attractor. The pedagogical point is sharp: determinism ≠ long-term predictability."
+      }
+    },
+    {
+      "title": {
+        "it": "Scelte didattiche",
+        "en": "Pedagogical choices"
+      },
+      "body": {
+        "it": "Ho scelto due scostamenti relativi (0.1% e 10%) invece di un solo esperimento: si vede che un errore più grande anticipa la divergenza visibile, ma non cambia la \"legge\" di crescita esponenziale tipica del sistema. È un ponte concreto tra le ODE di Analisi e l'idea di esponente di Lyapunov, senza richiedere ancora la teoria completa dei sistemi dinamici.",
+        "en": "I chose two relative offsets (0.1% and 10%) instead of a single experiment: a larger error advances visible divergence, but does not change the system's characteristic exponential growth. It is a concrete bridge from Calculus ODEs to the idea of a Lyapunov exponent, without needing the full theory of dynamical systems yet."
+      }
+    },
+    {
+      "title": {
+        "it": "Implementazione",
+        "en": "Implementation"
+      },
+      "body": {
+        "it": "L'animazione è realizzata in Python con NumPy (integrazione e stati) e Matplotlib (traiettorie 3D e frame dell'animazione), sviluppata ispirandomi a un post del Prof. Simone Conradi",
+        "en": "The animation is built in Python with NumPy (integration and state) and Matplotlib (3D trajectories and animation frames), developed inspired by a post from Prof. Simone Conradi"
+      }
+    }
+  ]
+}

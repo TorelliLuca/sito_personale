@@ -1,0 +1,34 @@
+{
+  "slug": "fiat-500",
+  "title": "FIAT 500",
+  "description": "Stima del valore di mercato di una Fiat 500 usata: app Flask con regressione lineare (scikit-learn) e interfaccia Tailwind per inserire i parametri del veicolo.",
+  "tags": ["python", "flask", "scikit-learn", "ml", "regression"],
+  "type": "gallery",
+  "demoSlug": null,
+  "featured": false,
+  "images": [
+    {
+      "src": "/projects/fiat-500/01.png",
+      "alt": "Schermata Fiat 500 Price Predictor"
+    }
+  ],
+  "roadmap": [
+    {
+      "version": "0.2",
+      "title": "Predittore con latitudine e longitudine",
+      "description": "Secondo notebook e modello pickle che includono lat/lng tra le feature, con scaler dedicato.",
+      "date": "2025-03-06"
+    },
+    {
+      "version": "0.1",
+      "title": "Regressione lineare e app Flask",
+      "description": "Training su dataset di Fiat 500 usate in Italia, serializzazione del modello e interfaccia web per la previsione in tempo reale.",
+      "date": "2025-02-28"
+    }
+  ],
+  "links": {
+    "github": "https://github.com/ITISlucaT/FIAT-500",
+    "live": null
+  },
+  "createdAt": "2025-03-06"
+}

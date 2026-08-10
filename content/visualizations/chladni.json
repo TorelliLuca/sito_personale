@@ -1,0 +1,93 @@
+{
+  "slug": "chladni",
+  "simulation": "chladni",
+  "featured": true,
+  "tags": ["physics", "math", "canvas"],
+  "createdAt": "2026-08-10",
+  "title": {
+    "it": "Pattern di Chladni animato",
+    "en": "Animated Chladni pattern"
+  },
+  "subtitle": {
+    "it": "Simulazione di una lastra vibrante e della migrazione dei granelli lungo le linee nodali.",
+    "en": "Simulation of a vibrating plate and sand grains migrating along nodal lines."
+  },
+  "description": {
+    "it": "Simulazione interattiva ispirata agli esperimenti di Ernst Chladni: fisica, matematica e scelte di implementazione.",
+    "en": "Interactive simulation inspired by Ernst Chladni's experiments: physics, math, and implementation choices."
+  },
+  "intro": {
+    "it": "Nell'header di questo portfolio compare una simulazione interattiva ispirata agli esperimenti di Ernst Chladni: una lastra vibrante che organizza i granelli di sabbia lungo le linee nodali.",
+    "en": "The header of this portfolio features an interactive simulation inspired by Ernst Chladni's experiments: a vibrating plate that organizes sand grains along nodal lines."
+  },
+  "theory": [
+    {
+      "title": {
+        "it": "La fisica",
+        "en": "The physics"
+      },
+      "body": {
+        "it": "In un pattern classico la lastra quadrata viene fatta vibrare a una frequenza di risonanza con un archetto o un trasduttore, poi si cospargono granelli di sabbia fine. I granelli migrano verso le linee nodali, dove l'ampiezza di vibrazione è zero. Nei punti di massima ampiezza (antinodi) la lastra accelera molto e \"lancia via\" i granelli a ogni ciclo; nei nodi resta quasi ferma, quindi i granelli vi rimangono intrappolati. Non è solo gravità: è un effetto di rettificazione meccanica.",
+        "en": "In a classic pattern, a square plate vibrates at a resonance frequency with a bow or transducer, then fine sand is sprinkled on top. Grains migrate toward nodal lines, where vibration amplitude is zero. At antinodes the plate accelerates strongly and \"throws off\" grains each cycle; at nodes it stays nearly still, trapping grains there. This is mechanical rectification, not just gravity."
+      }
+    },
+    {
+      "title": {
+        "it": "La matematica",
+        "en": "The mathematics"
+      },
+      "body": {
+        "it": "Per una lastra quadrata di lato 1, le forme modali sono combinazioni di seni ortogonali — soluzioni dell'equazione delle onde 2D con condizioni al contorno di lastra libera:",
+        "en": "For a unit square plate, modal shapes are combinations of orthogonal sines — solutions to the 2D wave equation with free boundary conditions:"
+      },
+      "formulas": [
+        "Z_{m,n}(x,y) = \\sin(m\\pi x)\\,\\sin(n\\pi y) - \\sin(n\\pi x)\\,\\sin(m\\pi y)"
+      ],
+      "note": {
+        "it": "Le linee nodali sono i punti dove Z = 0. Ogni coppia di interi (m, n) produce un pattern diverso e discreto: nella realtà un armonografo Chladni \"salta\" da un pattern all'altro solo quando cambi abbastanza la frequenza di eccitazione per raggiungere un'altra risonanza.",
+        "en": "Nodal lines occur where Z = 0. Each integer pair (m, n) yields a different discrete pattern: in reality a Chladni setup \"jumps\" between patterns only when the driving frequency changes enough to excite another resonance."
+      },
+      "inlineFormula": "Z_{m,n}(x,y) = 0"
+    }
+  ],
+  "design": [
+    {
+      "title": {
+        "it": "L'animazione",
+        "en": "The animation"
+      },
+      "body": {
+        "it": "Per animare il campo in modo fluido ho preso una licenza artistica: m e n variano con continuità nel tempo invece che a scatti tra interi. Non è più rigorosamente un singolo modo normale della lastra, ma il campo risultante si comporta come una sovrapposizione di onde stazionarie e le linee nodali si deformano in modo ipnotico — come in molti video di \"Chladni continui\" con trasduttori a frequenza variabile.",
+        "en": "To animate the field smoothly I took artistic license: m and n vary continuously over time instead of jumping between integers. This is no longer strictly a single normal mode, but the resulting field behaves like a superposition of standing waves and nodal lines morph hypnotically — similar to many \"continuous Chladni\" videos with slowly swept transducer frequencies."
+      }
+    },
+    {
+      "title": {
+        "it": "La simulazione",
+        "en": "The simulation"
+      },
+      "body": {
+        "it": "Invece di disegnare le linee nodali come contorno geometrico, ho simulato veri granelli di sabbia: ogni particella segue il gradiente negativo di Z² e scivola verso le zone a bassa ampiezza — la stessa logica fisica del granello reale. Il moto è integrato a ogni frame con smorzamento; le scie nascono da un fade parziale del canvas invece che da una cancellazione totale.",
+        "en": "Rather than drawing nodal lines as geometric contours, I simulated actual sand grains: each particle follows the negative gradient of Z² and slides toward low-amplitude regions — the same physical logic as a real grain. Motion is integrated each frame with damping; trails come from partially fading the canvas instead of clearing it entirely."
+      },
+      "formulas": [
+        "\\dot{\\mathbf{x}} \\propto -\\nabla\\!\\left(Z_{m,n}^{\\,2}\\right)"
+      ],
+      "note": {
+        "it": "con",
+        "en": "with"
+      },
+      "inlineFormula": "\\nabla\\!\\left(Z_{m,n}^{\\,2}\\right) = 2\\,Z_{m,n}\\,\\nabla Z_{m,n}"
+    },
+    {
+      "title": {
+        "it": "Implementazione",
+        "en": "Implementation"
+      },
+      "body": {
+        "it": "La visualizzazione è un componente React basato su canvas HTML5, circa 2800 particelle e requestAnimationFrame. Nell'hero occupa la parte destra con un layout rettangolare, si adatta al tema chiaro/scuro e rispetta prefers-reduced-motion mostrando un fotogramma statico. Niente librerie 3D: trigonometria, fisica elementare e rendering 2D.",
+        "en": "The visualization is a React component using an HTML5 canvas, ~2800 particles, and requestAnimationFrame. It sits on the right side of the hero in a rectangular layout, adapts to light/dark theme, and respects prefers-reduced-motion by showing a static frame. No 3D libraries needed — just trigonometry, elementary physics, and 2D rendering."
+      }
+    }
+  ]
+}

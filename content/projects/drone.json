@@ -1,0 +1,40 @@
+{
+  "slug": "drone",
+  "title": "DRONE",
+  "description": "Esperienza terapeutica per pazienti con SLA: controllo di un drone DJI Tello tramite Muse 2, cerchi interattivi a schermo e puntatore Leap Motion. Report HTML di sessione per il terapista. Progetto di team ITIS (leader).",
+  "tags": ["python", "drone", "muse2", "leap-motion", "tello", "bci"],
+  "type": "gallery",
+  "demoSlug": null,
+  "featured": false,
+  "images": [
+    {
+      "src": "/projects/drone/01.svg",
+      "alt": "Anteprima DRONE: controllo BCI, cerchi interattivi e video Tello"
+    }
+  ],
+  "roadmap": [
+    {
+      "version": "1.0",
+      "title": "Integrazione completa e report",
+      "description": "Pipeline unificata (MuseThread, VideoDrone, cerchi, Leap Motion), generazione del report HTML con i parametri di sessione per il terapista e documentazione README.",
+      "date": "2024-03-01"
+    },
+    {
+      "version": "0.2",
+      "title": "Cerchi interattivi e Leap Motion",
+      "description": "Interfaccia a cerchi ridimensionabili, spostabili e cliccabili; integrazione del puntatore Leap Motion per l'interazione a schermo senza mouse tradizionale.",
+      "date": "2024-02-28"
+    },
+    {
+      "version": "0.1",
+      "title": "Muse 2 e controllo Tello",
+      "description": "Lettura dei segnali Muse 2 (concentrazione/oscilloscopio) e primi movimenti spaziali del DJI Tello tramite djitellopy, con streaming video OpenCV.",
+      "date": "2024-02-22"
+    }
+  ],
+  "links": {
+    "github": "https://github.com/ITISlucaT/DRONE",
+    "live": null
+  },
+  "createdAt": "2024-03-01"
+}

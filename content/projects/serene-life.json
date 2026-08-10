@@ -1,0 +1,34 @@
+{
+  "slug": "serene-life",
+  "title": "Serene Life",
+  "description": "Sandbox action-adventure in browser con p5.js: raccolta risorse, vendita e espansione del territorio costruendo case su una mappa Tiled. Demo educativa.",
+  "tags": ["javascript", "p5js", "p5play", "tiledmap", "game"],
+  "type": "gallery",
+  "demoSlug": null,
+  "featured": false,
+  "images": [
+    {
+      "src": "/projects/serene-life/01.svg",
+      "alt": "Anteprima villaggio Serene Life con raccolta risorse e case"
+    }
+  ],
+  "roadmap": [
+    {
+      "version": "0.2",
+      "title": "Risorse, case e espansioni",
+      "description": "Sistema di raccolta e vendita risorse, livelli delle abitazioni (casa base, ali, dependances, casa sul lago) e acquisto di nuove espansioni sulla mappa.",
+      "date": "2024-03-19"
+    },
+    {
+      "version": "0.1",
+      "title": "Mondo Tiled e personaggio",
+      "description": "Prima versione del gioco in p5.js/p5.play: mappa del villaggio da Tiled, sprite del personaggio, collisioni e movimento WASD nel sandbox.",
+      "date": "2024-03-18"
+    }
+  ],
+  "links": {
+    "github": "https://github.com/ITISlucaT/SereneLife",
+    "live": null
+  },
+  "createdAt": "2024-03-26"
+}

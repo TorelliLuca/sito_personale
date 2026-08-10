@@ -1,0 +1,28 @@
+{
+  "slug": "netflix-replies",
+  "title": "Netflix Replies",
+  "description": "API REST in Spring Boot che gestisce un catalogo film su CSV: ricerca per genere, titolo e autore, suggerimenti, CRUD e fusione di file.",
+  "tags": ["java", "spring-boot", "rest-api", "csv"],
+  "type": "gallery",
+  "demoSlug": null,
+  "featured": false,
+  "images": [
+    {
+      "src": "/projects/netflix-replies/01.svg",
+      "alt": "Logo Netflix"
+    }
+  ],
+  "roadmap": [
+    {
+      "version": "0.1",
+      "title": "API REST su CSV",
+      "description": "Prima versione Spring Boot (Java 21): modello Film con genere e PEGI, repository che legge/scrive CSV, endpoint per lista, filtri, ordinamento, suggerimento, upload immagini e fusione di cataloghi.",
+      "date": "2024-10-09"
+    }
+  ],
+  "links": {
+    "github": "https://github.com/ITISlucaT/NetflixReplies",
+    "live": null
+  },
+  "createdAt": "2024-10-09"
+}

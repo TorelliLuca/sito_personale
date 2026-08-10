@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b1a24"/>
+      <stop offset="50%" stop-color="#123044"/>
+      <stop offset="100%" stop-color="#1a4a3a"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="40%" r="50%">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#38bdf8" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1600" height="1000" fill="url(#bg)"/>
+  <rect width="1600" height="1000" fill="url(#glow)"/>
+
+  <!-- Soft horizon -->
+  <ellipse cx="800" cy="920" rx="700" ry="80" fill="#0f766e" opacity="0.25"/>
+
+  <!-- EEG waves (Muse) -->
+  <g fill="none" stroke-linecap="round" opacity="0.7">
+    <path d="M 80 220 C 140 180, 180 260, 240 220 S 340 180, 400 220 S 500 260, 560 220" stroke="#67e8f9" stroke-width="3"/>
+    <path d="M 80 260 C 140 230, 180 290, 240 260 S 340 230, 400 260 S 500 290, 560 260" stroke="#22d3ee" stroke-width="2.5" opacity="0.65"/>
+    <path d="M 80 300 C 140 280, 180 320, 240 300 S 340 280, 400 300 S 500 320, 560 300" stroke="#a5f3fc" stroke-width="2" opacity="0.45"/>
+  </g>
+
+  <!-- Interactive circles -->
+  <g fill="none" stroke-width="3">
+    <circle cx="1180" cy="280" r="54" stroke="#f59e0b" opacity="0.95"/>
+    <circle cx="1320" cy="420" r="38" stroke="#fbbf24" opacity="0.75"/>
+    <circle cx="1080" cy="460" r="28" stroke="#fcd34d" opacity="0.6"/>
+    <circle cx="1240" cy="560" r="46" stroke="#f59e0b" opacity="0.55"/>
+  </g>
+  <circle cx="1180" cy="280" r="10" fill="#f59e0b"/>
+  <circle cx="1320" cy="420" r="8" fill="#fbbf24"/>
+
+  <!-- Drone body -->
+  <g transform="translate(800 480)">
+    <!-- Arms -->
+    <g stroke="#94a3b8" stroke-width="8" stroke-linecap="round">
+      <line x1="-110" y1="-70" x2="110" y2="70"/>
+      <line x1="110" y1="-70" x2="-110" y2="70"/>
+    </g>
+    <!-- Rotors -->
+    <g fill="#38bdf8" opacity="0.35">
+      <ellipse cx="-110" cy="-70" rx="48" ry="14"/>
+      <ellipse cx="110" cy="-70" rx="48" ry="14"/>
+      <ellipse cx="-110" cy="70" rx="48" ry="14"/>
+      <ellipse cx="110" cy="70" rx="48" ry="14"/>
+    </g>
+    <g fill="#e2e8f0">
+      <circle cx="-110" cy="-70" r="12"/>
+      <circle cx="110" cy="-70" r="12"/>
+      <circle cx="-110" cy="70" r="12"/>
+      <circle cx="110" cy="70" r="12"/>
+    </g>
+    <!-- Body -->
+    <rect x="-42" y="-28" width="84" height="56" rx="14" fill="#cbd5e1"/>
+    <rect x="-28" y="-16" width="56" height="32" rx="8" fill="#0ea5e9"/>
+    <circle cx="0" cy="0" r="8" fill="#e0f2fe"/>
+  </g>
+
+  <!-- Pointer trail (Leap Motion) -->
+  <path d="M 980 680 C 1040 640, 1100 700, 1160 650 S 1260 600, 1320 620" fill="none" stroke="#a78bfa" stroke-width="3" stroke-dasharray="8 10" opacity="0.7"/>
+  <circle cx="1320" cy="620" r="14" fill="#c4b5fd" opacity="0.9"/>
+  <circle cx="1320" cy="620" r="5" fill="#ede9fe"/>
+
+  <text x="80" y="90" fill="#e2e8f0" font-family="Georgia, 'Times New Roman', serif" font-size="48" font-weight="700">DRONE</text>
+  <text x="80" y="140" fill="#94a3b8" font-family="Georgia, 'Times New Roman', serif" font-size="24">Muse 2 · Tello · Leap Motion</text>
+</svg>

@@ -1,0 +1,58 @@
+{
+  "slug": "lighting-map",
+  "title": "Lighting Map",
+  "description": "Mappa interattiva delle luci con visualizzazione spaziale e analisi dei dati raccolti sul campo.",
+  "tags": ["mapping", "dataviz", "lighting-map"],
+  "type": "gallery",
+  "demoSlug": null,
+  "featured": true,
+  "images": [
+    {
+      "src": "/projects/lighting-map/01.svg",
+      "alt": "Anteprima lighting map"
+    }
+  ],
+  "roadmap": [
+    {
+      "version": "1.2.1",
+      "title": "Rifiniture post-release",
+      "description": "Fix e sistemazioni minori applicati subito dopo la v1.2.0, in chiusura del ciclo di aggiornamento maggiore.",
+      "date": "2026-08-04"
+    },
+    {
+      "version": "1.2.0",
+      "title": "Aggiornamento maggiore",
+      "description": "Rilascio di una versione maggiore dell'app dopo un lungo ciclo di consolidamento: raccoglie il refactoring, le nuove funzionalità di autenticazione e i miglioramenti UI introdotti nei mesi precedenti.",
+      "date": "2026-08-03",
+      "images": [
+        {
+          "src": "/projects/lighting-map/overview.png",
+          "alt": "Overview della mappa"
+        }
+      ]
+    },
+    {
+      "version": "0.3",
+      "title": "Autenticazione e refactor dell'interfaccia",
+      "description": "Aggiunta del recupero password e della validazione email, refactor del codebase con integrazione di Framer Motion e aggiornamento delle dipendenze, nuovo selettore di stile mappa con gestione dei confini comunali, aggiornamento della documentazione.",
+      "date": "2025-09-22"
+    },
+    {
+      "version": "0.2",
+      "title": "Mappa interattiva con filtri e statistiche",
+      "description": "Gestione della modifica dei punti luce, aggiunta di legenda, grafici e tempo medio di risposta alle segnalazioni, filtri ed evidenziazione dei punti luce, rinnovo di UI/UX, migrazione a MapLibre GL JS, nuova barra di ricerca, funzione di duplicazione punti, correzioni al calcolo dei colori e al componente InfoWindow.",
+      "date": "2025-07-22"
+    },
+    {
+      "version": "0.1",
+      "title": "Prima versione React",
+      "description": "Creazione della prima versione dell'app in React e Vite, primo deploy pubblico e stesura iniziale del README.",
+      "date": "2025-03-18"
+    }
+  ],
+  "links": {
+    "github": "https://github.com/TorelliLuca/Lighting-map",
+    "live": null
+  },
+  "createdAt": "2026-08-05"
+}

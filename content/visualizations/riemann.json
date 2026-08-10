@@ -1,0 +1,117 @@
+{
+  "slug": "riemann",
+  "simulation": "riemann",
+  "featured": true,
+  "tags": ["math", "analysis", "animation"],
+  "createdAt": "2026-08-10",
+  "title": {
+    "it": "Teorema fondamentale del calcolo integrale",
+    "en": "Fundamental theorem of calculus"
+  },
+  "subtitle": {
+    "it": "L'integrale definito come limite di somme di Riemann: rettangoli, errore e convergenza.",
+    "en": "The definite integral as a limit of Riemann sums: rectangles, error, and convergence."
+  },
+  "description": {
+    "it": "Animazione che mostra come le somme di Riemann approssimano l'area sotto una curva e convergono all'integrale definito.",
+    "en": "Animation showing how Riemann sums approximate the area under a curve and converge to the definite integral."
+  },
+  "intro": {
+    "it": "Questa animazione, realizzata per Analisi I al Politecnico di Torino, visualizza un'idea centrale del calcolo: l'area sotto una curva non è un oggetto misterioso, ma il limite di somme di aree di rettangoli sempre più stretti. È la costruzione che rende rigoroso l'integrale definito — e il punto di partenza del teorema fondamentale del calcolo.",
+    "en": "This animation, made for Calculus I at Politecnico di Torino, visualizes a core idea of calculus: the area under a curve is not mysterious — it is the limit of sums of areas of ever-thinner rectangles. That construction makes the definite integral rigorous, and it is the starting point of the fundamental theorem of calculus."
+  },
+  "theory": [
+    {
+      "title": {
+        "it": "L'integrale come area",
+        "en": "The integral as area"
+      },
+      "body": {
+        "it": "Dato un intervallo [a, b] e una funzione continua f ≥ 0, l'integrale definito misura l'area della regione compresa tra il grafico di f e l'asse x. Nell'animazione si usa",
+        "en": "Given an interval [a, b] and a continuous function f ≥ 0, the definite integral measures the area between the graph of f and the x-axis. The animation uses"
+      },
+      "formulas": [
+        "f(x) = \\sin(x) + \\tfrac{1}{2}x \\quad \\text{su}\\quad [0, 5]"
+      ],
+      "note": {
+        "it": "L'area \"vera\" I si ottiene numericamente con una partizione molto fine; è il valore a cui le somme di Riemann devono avvicinarsi.",
+        "en": "The \"true\" area I is computed numerically on a very fine partition; it is the value that Riemann sums should approach."
+      },
+      "inlineFormula": "I = \\int_{0}^{5} f(x)\\,dx"
+    },
+    {
+      "title": {
+        "it": "Somme di Riemann",
+        "en": "Riemann sums"
+      },
+      "body": {
+        "it": "Si suddivide [a, b] in n sottointervalli di ampiezza Δx = (b − a)/n. Su ciascun sottointervallo si costruisce un rettangolo la cui altezza è il valore di f nell'estremo sinistro (somma sinistra). La somma delle aree dei rettangoli è un'approssimazione dell'integrale:",
+        "en": "Partition [a, b] into n subintervals of width Δx = (b − a)/n. On each subinterval build a rectangle whose height is f at the left endpoint (left Riemann sum). The sum of rectangle areas approximates the integral:"
+      },
+      "formulas": [
+        "S_n = \\sum_{k=0}^{n-1} f(x_k)\\,\\Delta x,\\qquad x_k = a + k\\,\\Delta x"
+      ],
+      "note": {
+        "it": "Con pochi rettangoli i gradini sono grossolani e l'errore è grande; aumentando n i rettangoli seguono meglio la curva.",
+        "en": "With few rectangles the steps are coarse and the error is large; as n grows, the rectangles track the curve more closely."
+      }
+    },
+    {
+      "title": {
+        "it": "Dal limite al teorema fondamentale",
+        "en": "From the limit to the fundamental theorem"
+      },
+      "body": {
+        "it": "La definizione di integrale di Riemann afferma che, se f è continua, il limite delle somme esiste e coincide con l'area:",
+        "en": "The definition of the Riemann integral says that if f is continuous, the limit of the sums exists and equals the area:"
+      },
+      "formulas": [
+        "\\int_{a}^{b} f(x)\\,dx = \\lim_{n \\to \\infty} S_n"
+      ],
+      "note": {
+        "it": "Il teorema fondamentale del calcolo collega questa costruzione alle primitive: se F' = f, allora l'integrale definito vale F(b) − F(a). L'animazione mostra il lato \"geometrico\" del teorema — perché ha senso parlare di area come oggetto calcolato — mentre la parte analitica spiega come calcolarlo senza sommare infinite somme.",
+        "en": "The fundamental theorem of calculus links this construction to antiderivatives: if F' = f, then the definite integral equals F(b) − F(a). The animation shows the geometric side of the theorem — why area is a well-defined quantity — while the analytic side explains how to compute it without summing infinitely many terms."
+      },
+      "inlineFormula": "\\int_{a}^{b} f = F(b) - F(a)"
+    }
+  ],
+  "design": [
+    {
+      "title": {
+        "it": "L'animazione",
+        "en": "The animation"
+      },
+      "body": {
+        "it": "Il video fa crescere n in modo non lineare (da pochi rettangoli a centinaia): all'inizio si vede bene la geometria dei rettangoli; poi la partizione si raffina e i gradini si fondono nella curva. Accanto al grafico principale un pannello mostra i parametri (n, Δx, Sₙ, I) e lo scarto assoluto ε = |I − Sₙ|, così la convergenza non resta solo \"visiva\".",
+        "en": "The video grows n nonlinearly (from a few rectangles to hundreds): early frames make the rectangle geometry obvious; then the partition refines and the steps melt into the curve. Beside the main plot, a panel shows parameters (n, Δx, Sₙ, I) and the absolute gap ε = |I − Sₙ|, so convergence is not only visual."
+      },
+      "formulas": [
+        "\\varepsilon_n = \\left| I - S_n \\right|"
+      ],
+      "note": {
+        "it": "Il grafico dell'errore in scala log-log evidenzia la riduzione dello scarto al crescere di n.",
+        "en": "The error plot on a log-log scale highlights how the gap shrinks as n increases."
+      }
+    },
+    {
+      "title": {
+        "it": "Scelte didattiche",
+        "en": "Pedagogical choices"
+      },
+      "body": {
+        "it": "Ho scelto somme sinistre e una funzione semplice ma non banale (seno più termine lineare): l'area non è ovvia a occhio e i rettangoli sottostimano o sovrastimano a seconda della monotonia locale. L'area di riferimento non è simbolica ma numerica ad alta risoluzione — come in un laboratorio di calcolo — per sottolineare che l'integrale è un limite, non un singolo disegno.",
+        "en": "I chose left sums and a simple but non-trivial function (sine plus a linear term): the area is not obvious by eye, and rectangles under- or over-estimate depending on local monotonicity. The reference area is high-resolution numerical, not symbolic — as in a computing lab — to stress that the integral is a limit, not a single drawing."
+      }
+    },
+    {
+      "title": {
+        "it": "Implementazione",
+        "en": "Implementation"
+      },
+      "body": {
+        "it": "L'animazione è generata in Python con NumPy e Matplotlib (FuncAnimation + FFMpegWriter): a ogni frame si ricalcolano i rettangoli, la somma Sₙ e l'errore, aggiornando tre pannelli (curva, convergenza, info).",
+        "en": "The animation is generated in Python with NumPy and Matplotlib (FuncAnimation + FFMpegWriter): each frame recomputes the rectangles, the sum Sₙ, and the error, updating three panels (curve, convergence, info). "
+      }
+    }
+  ]
+}

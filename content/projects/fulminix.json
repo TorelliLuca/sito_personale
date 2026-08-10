@@ -1,0 +1,48 @@
+{
+  "slug": "fulminix",
+  "title": "Fulminix",
+  "description": "Applicazione desktop per l'analisi di protezione dai fulmini secondo la norma CEI EN 62305: disegno degli edifici su mappa, calcolo geometrico delle aree di raccolta e export di report tecnici.",
+  "tags": ["python", "pyside6", "shapely", "desktop"],
+  "type": "gallery",
+  "demoSlug": null,
+  "featured": false,
+  "images": [
+    {
+      "src": "/projects/fulminix/01.jpg",
+      "alt": "Report tecnico Fulminix con aree di raccolta su mappa satellitare"
+    },
+    {
+      "src": "/projects/fulminix/02.jpg",
+      "alt": "Analisi di protezione con zone calcolate e superficie scoperta"
+    },
+    {
+      "src": "/projects/fulminix/03.jpg",
+      "alt": "Vista dettagliata del complesso edilizio e metriche di copertura"
+    }
+  ],
+  "roadmap": [
+    {
+      "version": "1.0",
+      "title": "Build desktop e report CEI",
+      "description": "Packaging con PyInstaller (FulmenCalc), splash screen e branding Fulminix. Report tecnico con coefficiente di posizione Cd, aree di raccolta e percentuale di scopertura, esportabile in PNG, DOCX e PDF.",
+      "date": "2026-03-27"
+    },
+    {
+      "version": "0.2",
+      "title": "Analisi geometrica e export",
+      "description": "Motore Shapely per buffer delle zone di raccolta (r = 3 × h), unione delle aree, calcolo della superficie principale non coperta dagli oggetti circostanti. Export ad alta risoluzione con sidebar delle metriche e legenda.",
+      "date": "2026-02-19"
+    },
+    {
+      "version": "0.1",
+      "title": "Canvas e disegno edifici",
+      "description": "Prima versione PySide6: canvas metrico su sfondo satellitare, disegno poligoni e linee, altezze editabili, coefficiente di posizione K, salvataggio/caricamento progetti e calibrazione della scala.",
+      "date": "2026-02-10"
+    }
+  ],
+  "links": {
+    "github": null,
+    "live": null
+  },
+  "createdAt": "2026-03-27"
+}

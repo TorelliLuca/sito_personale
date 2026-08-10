@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-label="Netflix">
+  <rect width="800" height="500" fill="#000000"/>
+  <!-- Classic Netflix N mark -->
+  <g transform="translate(292 95)">
+    <path fill="#E50914" d="M36.5 0h52.6v198.8L141.7 0H216v310H163.4V111.2L111.6 310H36.5V0z"/>
+    <path fill="#B20710" d="M36.5 0h52.6v310H36.5z" opacity="0.35"/>
+  </g>
+  <text x="400" y="450" text-anchor="middle" fill="#E50914" font-family="Arial Black, Helvetica Neue, Arial, sans-serif" font-size="42" font-weight="900" letter-spacing="14">NETFLIX</text>
+</svg>
