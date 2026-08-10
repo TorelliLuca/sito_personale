@@ -14,8 +14,9 @@ export function VisualizationsSection({
   visualizations,
 }: VisualizationsSectionProps) {
   const { tr } = useLocale();
+  const preview = visualizations.slice(0, 2);
 
-  if (visualizations.length === 0) {
+  if (preview.length === 0) {
     return null;
   }
 
@@ -29,7 +30,7 @@ export function VisualizationsSection({
         />
 
         <div>
-          {visualizations.map((visualization) => (
+          {preview.map((visualization) => (
             <VisualizationCard
               key={visualization.slug}
               visualization={visualization}

@@ -26,6 +26,10 @@ export function getProjectBySlug(slug: string): Project | undefined {
   return getAllProjects().find((project) => project.slug === slug);
 }
 
+export function getProjectByDemoSlug(demoSlug: string): Project | undefined {
+  return getAllProjects().find((project) => project.demoSlug === demoSlug);
+}
+
 export function getAllTags(): string[] {
   const tags = new Set<string>();
   for (const project of getAllProjects()) {

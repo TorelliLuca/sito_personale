@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { VisualizationDetail } from "@/components/visualizations/visualization-detail";
+import { buildPageMetadata } from "@/lib/seo";
 import {
   getAllVisualizations,
   getVisualizationBySlug,
@@ -26,10 +27,12 @@ export async function generateMetadata({
     return { title: "Visualizzazione non trovata" };
   }
 
-  return {
-    title: `${visualization.title.it} | Portfolio`,
+  return buildPageMetadata({
+    title: visualization.title.it,
     description: visualization.description.it,
-  };
+    path: `/visualizzazioni/${visualization.slug}`,
+    type: "article",
+  });
 }
 
 export default async function VisualizationPage({

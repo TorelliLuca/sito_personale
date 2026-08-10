@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { ArrowLeft, ExternalLink } from "lucide-react";
 import { notFound } from "next/navigation";
 import { GithubIcon } from "@/components/icons/social";
@@ -6,6 +7,7 @@ import { AnchorButton, LinkButton } from "@/components/link-button";
 import { ProjectCarousel } from "@/components/project-carousel";
 import { ProjectRoadmap } from "@/components/project-roadmap";
 import { getAllProjects, getProjectBySlug } from "@/lib/projects";
+import { buildPageMetadata } from "@/lib/seo";
 
 interface ProjectPageProps {
   params: Promise<{ slug: string }>;
@@ -15,7 +17,9 @@ export async function generateStaticParams() {
   return getAllProjects().map((project) => ({ slug: project.slug }));
 }
 
-export async function generateMetadata({ params }: ProjectPageProps) {
+export async function generateMetadata({
+  params,
+}: ProjectPageProps): Promise<Metadata> {
   const { slug } = await params;
   const project = getProjectBySlug(slug);
 
@@ -23,10 +27,13 @@ export async function generateMetadata({ params }: ProjectPageProps) {
     return { title: "Progetto non trovato" };
   }
 
-  return {
-    title: `${project.title} | Portfolio`,
+  return buildPageMetadata({
+    title: project.title,
     description: project.description,
-  };
+    path: `/projects/${project.slug}`,
+    image: project.images[0]?.src,
+    type: "article",
+  });
 }
 
 export default async function ProjectPage({ params }: ProjectPageProps) {

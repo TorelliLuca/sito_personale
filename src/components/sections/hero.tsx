@@ -38,7 +38,7 @@ export function HeroSection() {
             <Mail className="size-4" />
             {tr("heroCtaContact")}
           </AnchorButton>
-          <AnchorButton href="visualizzazioni/chladni" variant="ghost" size="lg">
+          <AnchorButton href="/visualizzazioni/chladni" variant="ghost" size="lg">
             <Sparkles className="size-4" />
             {tr("heroCtaVisualizations")}
           </AnchorButton>

@@ -1,5 +1,8 @@
 export const siteConfig = {
   name: "Luca Torelli",
+  url: "https://luca-torelli.vercel.app",
+  description:
+    "Portfolio di Luca Torelli — studente di Ingegneria Informatica al Politecnico di Torino. Sviluppo software, IA e robotica.",
   role: {
     it: "Studente di Ingegneria Informatica · Politecnico di Torino",
     en: "Computer Engineering Student · Politecnico di Torino",
