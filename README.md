@@ -174,6 +174,8 @@ Il sito è pensato per il deploy continuo: ogni push su `main` aggiorna la produ
 
 Dopo il collegamento Git non serve più deployare a mano: basta `git push`.
 
+Produzione: [sitopersonale-liard.vercel.app](https://sitopersonale-liard.vercel.app) · Repo: [TorelliLuca/sito_personale](https://github.com/TorelliLuca/sito_personale)
+
 > L'API di upload (`POST /api/projects`) funziona in locale. Su Vercel il filesystem è read-only: aggiungi progetti in dev, committa i file generati, poi pusha.
 
 ## Personalizzazione
