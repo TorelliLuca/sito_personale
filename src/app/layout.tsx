@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Archivo, Space_Grotesk } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import { Footer } from "@/components/footer";
 import { Navbar } from "@/components/navbar";
 import { Providers } from "@/components/providers";
@@ -72,6 +73,7 @@ export default function RootLayout({
           <div className="flex-1">{children}</div>
           <Footer />
         </Providers>
+        <Analytics />
       </body>
     </html>
   );
