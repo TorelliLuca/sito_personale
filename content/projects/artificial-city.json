@@ -1,54 +1,40 @@
 {
   "slug": "artificial-city",
   "title": "Artificial City",
-  "description": "Simulazione agent-based di una città con economia emergente e metriche di econofisica su architettura ECS, più visualizzazione interattiva dell'agente in Three.js. Strumento di ricerca, non un gioco.",
-  "tags": ["python", "simulation", "ecs", "agents", "econophysics", "threejs", "rl"],
+  "description": "Simulazione agent-based di una città su architettura ECS, con economia emergente e metriche di econofisica (Gini, entropia, temperatura economica). Gli agenti sono guidati da una policy PPO addestrata offline; sul sito la demo Three.js riproduce un episodio esportato in JSON (replay, non training in browser).",
+  "tags": ["python", "simulation", "ecs", "agents", "econophysics", "threejs", "rl", "ppo"],
   "type": "hybrid",
   "demoSlug": "rl-visualization",
   "featured": true,
   "images": [
     {
-      "src": "/projects/artificial-city/01.svg",
-      "alt": "Anteprima griglia Artificial City con agenti e edifici"
-    },
-    {
-      "src": "/projects/rl-visualization/01.svg",
-      "alt": "Anteprima ambiente RL simulato"
-    },
-    {
-      "src": "/projects/rl-visualization/02.svg",
-      "alt": "Percorso di training dell'agente"
+      "src": "/projects/artificial-city/preview.webm",
+      "alt": "Replay della demo Artificial City in Three.js"
     }
   ],
   "roadmap": [
     {
+      "version": "1.1",
+      "title": "Replay JSON nel browser",
+      "description": "Episodio PPO esportato da Artificial City (schemaVersion 1) e riprodotto in Three.js: griglia, edifici, agenti colorati per azione, play/pausa e metriche (Gini, felicità, energia). Nessun training né database sul sito.",
+      "date": "2026-09-15"
+    },
+    {
       "version": "1.0",
       "title": "Demo interattiva nel browser",
-      "description": "Visualizzazione hybrid con Three.js: controlli di camera e collegamento diretto alla pagina progetto per ispezionare stati e traiettorie dell'agente.",
-      "date": "2026-08-10",
-      "images": [
-        {
-          "src": "/projects/rl-visualization/02.svg",
-          "alt": "Scena Three.js dell'ambiente"
-        }
-      ]
+      "description": "Prima integrazione hybrid con Three.js: controlli di camera e pagina demo dedicata collegata al progetto.",
+      "date": "2026-08-10"
     },
     {
       "version": "0.2",
       "title": "Economia emergente e bridge verso il browser",
-      "description": "Estensione della simulazione verso prezzi dinamici e fallimento delle attività; esportazione degli episodi come JSON per il rendering interattivo invece di un player video.",
-      "date": "2026-06-12",
-      "images": [
-        {
-          "src": "/projects/rl-visualization/01.svg",
-          "alt": "Prime traiettorie esportate dal training"
-        }
-      ]
+      "description": "Prezzi dinamici, fallimento delle attività ed esportazione degli episodi come JSON per il rendering interattivo al posto di un player video.",
+      "date": "2026-06-12"
     },
     {
       "version": "0.1",
       "title": "Simulazione base ECS",
-      "description": "Mondo 50×50, 20 agenti con bisogni ed economia, 15 edifici, decisioni rule-based, movimento Manhattan, metriche in tempo reale (Gini, temperatura economica, entropia), visualizzazione Pygame ed export CSV/JSON.",
+      "description": "Mondo a griglia, agenti con bisogni ed economia, edifici (home, workplace, supermarket), decisioni rule-based, movimento Manhattan, metriche in tempo reale e visualizzazione/export da Python.",
       "date": "2026-06-12"
     }
   ],

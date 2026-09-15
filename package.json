@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "add-project": "tsx scripts/add-project.ts"
+    "add-project": "tsx scripts/add-project.ts",
+    "sync-lighting-map-roadmap": "tsx scripts/sync-lighting-map-roadmap.ts"
   },
   "dependencies": {
     "@base-ui/react": "^1.7.0",

@@ -43,6 +43,7 @@ export default async function DemoPage({ params }: DemoPageProps) {
     <DemoShell
       title={project?.title ?? slug}
       description={project?.description}
+      showControlsHint={slug !== "rl-visualization"}
     >
       <DemoLoader slug={slug} />
     </DemoShell>

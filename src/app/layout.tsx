@@ -59,6 +59,7 @@ export default function RootLayout({
   return (
     <html
       lang="it"
+      data-scroll-behavior="smooth"
       suppressHydrationWarning
       className={`${archivo.variable} ${spaceGrotesk.variable} h-full antialiased`}
     >

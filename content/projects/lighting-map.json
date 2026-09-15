@@ -2,7 +2,11 @@
   "slug": "lighting-map",
   "title": "Lighting Map",
   "description": "Mappa interattiva delle luci con visualizzazione spaziale e analisi dei dati raccolti sul campo.",
-  "tags": ["mapping", "dataviz", "lighting-map"],
+  "tags": [
+    "mapping",
+    "dataviz",
+    "lighting-map"
+  ],
   "type": "gallery",
   "demoSlug": null,
   "featured": true,
@@ -15,14 +19,28 @@
   "roadmap": [
     {
       "version": "1.2.1",
-      "title": "Rifiniture post-release",
-      "description": "Fix e sistemazioni minori applicati subito dopo la v1.2.0, in chiusura del ciclo di aggiornamento maggiore.",
+      "commitSha": "f371010",
+      "title": {
+        "en": "Post-release polish",
+        "it": "Rifiniture post-release"
+      },
+      "description": {
+        "en": "Minor fixes and cleanups applied right after v1.2.0, closing out the major update cycle.",
+        "it": "Fix e sistemazioni minori applicati subito dopo la v1.2.0, in chiusura del ciclo di aggiornamento maggiore."
+      },
       "date": "2026-08-04"
     },
     {
       "version": "1.2.0",
-      "title": "Aggiornamento maggiore",
-      "description": "Rilascio di una versione maggiore dell'app dopo un lungo ciclo di consolidamento: raccoglie il refactoring, le nuove funzionalità di autenticazione e i miglioramenti UI introdotti nei mesi precedenti.",
+      "commitSha": "73e5d19",
+      "title": {
+        "en": "Major update",
+        "it": "Aggiornamento maggiore"
+      },
+      "description": {
+        "en": "Major app release after a long consolidation cycle: brings together the refactor, new authentication features, and UI improvements from the previous months.",
+        "it": "Rilascio di una versione maggiore dell'app dopo un lungo ciclo di consolidamento: raccoglie il refactoring, le nuove funzionalità di autenticazione e i miglioramenti UI introdotti nei mesi precedenti."
+      },
       "date": "2026-08-03",
       "images": [
         {
@@ -32,22 +50,186 @@
       ]
     },
     {
-      "version": "0.3",
-      "title": "Autenticazione e refactor dell'interfaccia",
-      "description": "Aggiunta del recupero password e della validazione email, refactor del codebase con integrazione di Framer Motion e aggiornamento delle dipendenze, nuovo selettore di stile mappa con gestione dei confini comunali, aggiornamento della documentazione.",
-      "date": "2025-09-22"
+      "version": "0.1.13",
+      "commitSha": "b0b35fc",
+      "title": {
+        "en": "new map style switcher and borders handling",
+        "it": "Selettore stile mappa e gestione dei confini"
+      },
+      "description": {
+        "en": "new map style switcher and borders handling",
+        "it": "Nuovo selettore di stile della mappa e gestione dei confini comunali."
+      },
+      "date": "2025-09-12"
     },
     {
-      "version": "0.2",
-      "title": "Mappa interattiva con filtri e statistiche",
-      "description": "Gestione della modifica dei punti luce, aggiunta di legenda, grafici e tempo medio di risposta alle segnalazioni, filtri ed evidenziazione dei punti luce, rinnovo di UI/UX, migrazione a MapLibre GL JS, nuova barra di ricerca, funzione di duplicazione punti, correzioni al calcolo dei colori e al componente InfoWindow.",
+      "version": "0.1.12",
+      "commitSha": "0497129",
+      "title": {
+        "en": "Refactored codebase with Framer Motion integration, updated dependencies, and various component changes",
+        "it": "Refactor con Framer Motion e aggiornamento dipendenze"
+      },
+      "description": {
+        "en": "Refactored codebase with Framer Motion integration, updated dependencies, and various component changes",
+        "it": "Refactor del codebase con integrazione di Framer Motion, aggiornamento delle dipendenze e varie modifiche ai componenti."
+      },
+      "date": "2025-09-11"
+    },
+    {
+      "version": "0.1.11",
+      "commitSha": "3edd816",
+      "title": {
+        "en": "added forgot password and email validation + other",
+        "it": "Recupero password e validazione email"
+      },
+      "description": {
+        "en": "small bugs fixes",
+        "it": "Aggiunta del recupero password e della validazione email, più correzioni minori."
+      },
+      "date": "2025-09-03"
+    },
+    {
+      "version": "0.1.10",
+      "commitSha": "f1c43c3",
+      "title": {
+        "en": "added some adjustments to the InfoWindow component",
+        "it": "Aggiustamenti al componente InfoWindow"
+      },
+      "description": {
+        "en": "added some adjustments to the InfoWindow component",
+        "it": "Correzioni e miglioramenti al componente InfoWindow."
+      },
       "date": "2025-07-22"
     },
     {
-      "version": "0.1",
-      "title": "Prima versione React",
-      "description": "Creazione della prima versione dell'app in React e Vite, primo deploy pubblico e stesura iniziale del README.",
+      "version": "0.1.9",
+      "commitSha": "3a58f4c",
+      "title": {
+        "en": "fixed color generation",
+        "it": "Correzione generazione colori"
+      },
+      "description": {
+        "en": "fixed color generation",
+        "it": "Corretto il calcolo e la generazione dei colori sulla mappa."
+      },
+      "date": "2025-07-22"
+    },
+    {
+      "version": "0.1.8",
+      "commitSha": "86b4320",
+      "title": {
+        "en": "added duplicate points function and other fixes",
+        "it": "Duplicazione punti e altre correzioni"
+      },
+      "description": {
+        "en": "added duplicate points function and other fixes",
+        "it": "Funzione di duplicazione dei punti luce e altre correzioni."
+      },
+      "date": "2025-07-22"
+    },
+    {
+      "version": "0.1.7",
+      "commitSha": "e2fd4f4",
+      "title": {
+        "en": "renewed searchbar and other bug fixes",
+        "it": "Nuova barra di ricerca e correzioni"
+      },
+      "description": {
+        "en": "renewed searchbar and other bug fixes",
+        "it": "Rinnovo della barra di ricerca e varie correzioni di bug."
+      },
+      "date": "2025-07-19"
+    },
+    {
+      "version": "0.1.6",
+      "commitSha": "5a674fc",
+      "title": {
+        "en": "MapLibre GS JS integration",
+        "it": "Integrazione MapLibre GL JS"
+      },
+      "description": {
+        "en": "MapLibre GS JS integration",
+        "it": "Migrazione e integrazione di MapLibre GL JS per la mappa."
+      },
+      "date": "2025-07-18"
+    },
+    {
+      "version": "0.1.5",
+      "commitSha": "dfb245b",
+      "title": {
+        "en": "renewed UI/UX and other bug fixes",
+        "it": "Rinnovo UI/UX e correzioni"
+      },
+      "description": {
+        "en": "renewed UI/UX and other bug fixes",
+        "it": "Rinnovo dell'interfaccia utente e correzioni di bug."
+      },
+      "date": "2025-07-15"
+    },
+    {
+      "version": "0.1.4",
+      "commitSha": "8c04683",
+      "title": {
+        "en": "added filters and highlighting options and other",
+        "it": "Filtri ed evidenziazione punti"
+      },
+      "description": {
+        "en": "added filters and highlighting options and other",
+        "it": "Aggiunta di filtri e opzioni di evidenziazione dei punti luce."
+      },
+      "date": "2025-07-11"
+    },
+    {
+      "version": "0.1.3",
+      "commitSha": "cda538b",
+      "title": {
+        "en": "added legend, charts and average response time",
+        "it": "Legenda, grafici e tempo medio di risposta"
+      },
+      "description": {
+        "en": "added legend, charts and average response time",
+        "it": "Aggiunta di legenda, grafici e tempo medio di risposta alle segnalazioni."
+      },
+      "date": "2025-07-10"
+    },
+    {
+      "version": "0.1.2",
+      "commitSha": "ae6dba9",
+      "title": {
+        "en": "added edit light points handling",
+        "it": "Gestione modifica punti luce"
+      },
+      "description": {
+        "en": "added edit light points handling",
+        "it": "Gestione della modifica dei punti luce sulla mappa."
+      },
+      "date": "2025-07-05"
+    },
+    {
+      "version": "0.1.1",
+      "commitSha": "38b7ef3",
+      "title": {
+        "en": "first published version in React",
+        "it": "Prima versione pubblicata in React"
+      },
+      "description": {
+        "en": "first published version in React",
+        "it": "Primo deploy pubblico dell'app in React."
+      },
       "date": "2025-03-18"
+    },
+    {
+      "version": "0.1.0",
+      "commitSha": "c1597aa",
+      "title": {
+        "en": "first react version of lighting-map",
+        "it": "Prima versione React di Lighting Map"
+      },
+      "description": {
+        "en": "first react version of lighting-map",
+        "it": "Creazione della prima versione dell'app in React e Vite."
+      },
+      "date": "2025-03-15"
     }
   ],
   "links": {

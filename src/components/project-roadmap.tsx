@@ -1,13 +1,38 @@
 "use client";
 
+import { useState } from "react";
+import { ChevronDown, ChevronUp } from "lucide-react";
 import { ProjectCarousel } from "@/components/project-carousel";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import { useLocale } from "@/lib/i18n/locale-context";
-import type { ProjectRoadmapVersion } from "@/lib/types/project";
+import type { Locale } from "@/lib/i18n/translations";
+import type {
+  ProjectLocalizedText,
+  ProjectRoadmapVersion,
+} from "@/lib/types/project";
+
+const VISIBLE_STEPS = 5;
 
 interface ProjectRoadmapProps {
   versions: ProjectRoadmapVersion[];
   projectTitle: string;
+}
+
+function roadmapText(
+  value: ProjectLocalizedText | undefined,
+  locale: Locale
+): string {
+  if (value == null) return "";
+  if (typeof value === "string") return value;
+  if (typeof value === "object") {
+    const localized = value as { it?: string; en?: string };
+    const primary = localized[locale];
+    if (typeof primary === "string" && primary.trim()) return primary;
+    const fallback = locale === "it" ? localized.en : localized.it;
+    if (typeof fallback === "string") return fallback;
+  }
+  return "";
 }
 
 function formatDate(date: string, locale: string): string {
@@ -36,12 +61,18 @@ function sortVersions(versions: ProjectRoadmapVersion[]): ProjectRoadmapVersion[
 
 export function ProjectRoadmap({ versions, projectTitle }: ProjectRoadmapProps) {
   const { locale, tr } = useLocale();
+  const [expanded, setExpanded] = useState(false);
 
   if (versions.length === 0) {
     return null;
   }
 
   const ordered = sortVersions(versions);
+  const canCollapse = ordered.length > VISIBLE_STEPS;
+  const visible = expanded || !canCollapse
+    ? ordered
+    : ordered.slice(0, VISIBLE_STEPS);
+  const hiddenCount = ordered.length - VISIBLE_STEPS;
 
   return (
     <section className="mt-14 space-y-8" aria-labelledby="project-roadmap-heading">
@@ -56,12 +87,17 @@ export function ProjectRoadmap({ versions, projectTitle }: ProjectRoadmapProps) 
       </div>
 
       <ol className="relative space-y-10 border-l border-border/80 pl-6 sm:pl-8">
-        {ordered.map((entry, index) => {
+        {visible.map((entry, index) => {
           const isLatest = index === 0;
           const images = entry.images ?? [];
+          const title = roadmapText(entry.title, locale);
+          const description = roadmapText(entry.description, locale);
 
           return (
-            <li key={`${entry.version}-${entry.title}`} className="relative">
+            <li
+              key={`${entry.commitSha ?? entry.version}-${title}`}
+              className="relative"
+            >
               <span
                 className={`absolute top-1.5 left-[-1.55rem] size-3 rounded-full border-2 border-background sm:left-[-2.05rem] ${
                   isLatest ? "bg-accent" : "bg-muted-foreground/50"
@@ -88,10 +124,10 @@ export function ProjectRoadmap({ versions, projectTitle }: ProjectRoadmapProps) 
                 </div>
 
                 <h3 className="font-heading text-xl font-semibold tracking-tight">
-                  {entry.title}
+                  {title}
                 </h3>
                 <p className="leading-relaxed text-muted-foreground">
-                  {entry.description}
+                  {description}
                 </p>
 
                 {images.length > 0 ? (
@@ -107,6 +143,31 @@ export function ProjectRoadmap({ versions, projectTitle }: ProjectRoadmapProps) 
           );
         })}
       </ol>
+
+      {canCollapse ? (
+        <div className="flex justify-center pt-2">
+          <Button
+            type="button"
+            variant="outline"
+            size="sm"
+            aria-expanded={expanded}
+            onClick={() => setExpanded((value) => !value)}
+          >
+            {expanded ? (
+              <>
+                <ChevronUp className="size-4" />
+                {tr("projectRoadmapCollapse")}
+              </>
+            ) : (
+              <>
+                <ChevronDown className="size-4" />
+                {tr("projectRoadmapExpand")}
+                {hiddenCount > 0 ? ` (${hiddenCount})` : null}
+              </>
+            )}
+          </Button>
+        </div>
+      ) : null}
     </section>
   );
 }

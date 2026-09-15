@@ -9,9 +9,15 @@ interface DemoShellProps {
   title: string;
   description?: string;
   children: ReactNode;
+  showControlsHint?: boolean;
 }
 
-export function DemoShell({ title, description, children }: DemoShellProps) {
+export function DemoShell({
+  title,
+  description,
+  children,
+  showControlsHint = true,
+}: DemoShellProps) {
   const { tr } = useLocale();
 
   return (
@@ -32,9 +38,11 @@ export function DemoShell({ title, description, children }: DemoShellProps) {
       </header>
 
       <div className="relative flex-1 bg-muted/30">
-        <p className="absolute left-4 top-4 z-10 rounded-md bg-background/80 px-3 py-1 text-xs text-muted-foreground backdrop-blur">
-          {tr("demoControls")}
-        </p>
+        {showControlsHint ? (
+          <p className="absolute left-4 top-4 z-10 rounded-md bg-background/80 px-3 py-1 text-xs text-muted-foreground backdrop-blur">
+            {tr("demoControls")}
+          </p>
+        ) : null}
         {children}
       </div>
     </div>

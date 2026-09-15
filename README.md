@@ -126,8 +126,11 @@ Nel JSON, aggiungi (o estendi) l'array `roadmap`:
 "roadmap": [
   {
     "version": "0.1",
-    "title": "Prototipo",
-    "description": "Prime scelte e MVP.",
+    "title": { "it": "Prototipo", "en": "Prototype" },
+    "description": {
+      "it": "Prime scelte e MVP.",
+      "en": "Early choices and MVP."
+    },
     "date": "2026-05-12",
     "images": [
       {
@@ -148,20 +151,65 @@ Nel JSON, aggiungi (o estendi) l'array `roadmap`:
 | Campo | Descrizione |
 |-------|-------------|
 | `version` | Etichetta versione (`0.1`, `1.0`, `v2`, …) |
-| `title` | Titolo breve della tappa |
-| `description` | Cosa è stato fatto / perché quelle scelte |
+| `title` | Titolo breve: stringa oppure `{ "it", "en" }` |
+| `description` | Descrizione: stringa oppure `{ "it", "en" }` |
 | `date` | Data ISO opzionale (`YYYY-MM-DD`); ordina la timeline |
+| `commitSha` | Opzionale; SHA commit di origine (sync GitHub) |
 | `images` | Array opzionale di foto (stesso formato di `images` del progetto) |
 
 Suggerimento: metti le foto di versione in `public/projects/[slug]/roadmap/` (es. `v0.1-01.png`) e riferiscile nel JSON. L'ultima tappa (per data/ordine) viene evidenziata come **Attuale**.
+
+### Sync roadmap Lighting Map (GitHub Actions)
+
+La roadmap di **Lighting Map** si aggiorna dalle commit su `main` del repo [Lighting-map](https://github.com/TorelliLuca/Lighting-map):
+
+- Workflow: `.github/workflows/sync-lighting-map-roadmap.yml` (cron giornaliero + `workflow_dispatch`)
+- Script locale: `npm run sync-lighting-map-roadmap` (aggiungi `-- --dry-run` per anteprima)
+- Ignore SHA/pattern e override versione: [`scripts/lighting-map-roadmap.config.json`](scripts/lighting-map-roadmap.config.json)
+
+Al sync, `en` viene dal messaggio di commit e `it` parte come copia di `en`. Se ritocchi l’italiano nel JSON (`it` ≠ `en`), il prossimo sync **preserva** quel testo grazie a `commitSha`.
 
 ## Demo Three.js
 
 Le demo interattive vivono in `/demos/[slug]`. Per aggiungerne una nuova:
 
 1. Crea il componente in `src/components/demos/`
-2. Registralo in `src/app/demos/[slug]/page.tsx` dentro `demoMap`
+2. Registralo in `src/lib/demos.ts` e in `src/components/demos/demo-loader.tsx`
 3. Collega il progetto con `--demo slug` nello script add-project
+
+### Artificial City · replay JSON (PPO)
+
+La demo `/demos/rl-visualization` **non** esegue PPO nel browser: riproduce un episodio JSON esportato offline da Artificial City.
+
+Il file statico vive in `public/projects/artificial-city/episodes/demo.json` (committalo e pusha: Vercel lo serve così com’è). Per aggiornarlo, riesporta dal repo di simulazione e sostituisci quel JSON.
+
+Schema (`schemaVersion: 1`), allineato a `SimulationRunner.get_state_snapshot()`:
+
+```json
+{
+  "schemaVersion": 1,
+  "meta": {
+    "grid_size": 40,
+    "day_length": 480,
+    "seed": 42,
+    "policy": "RuleBasedPolicy",
+    "ticks_simulated": 600,
+    "stride": 2
+  },
+  "buildings": [{ "id": 0, "x": 3, "y": 5, "type": "home", "tiles": [[3,5]], "size": 1 }],
+  "frames": [
+    {
+      "tick": 0,
+      "agents": [{ "id": 16, "x": 3, "y": 5, "action": "idle", "hunger": 0, "energy": 100, "money": 1000, "happiness": 50 }],
+      "metrics": { "gini_coefficient": 0.02, "mean_happiness": 50 },
+      "agents_alive": 12
+    }
+  ]
+}
+```
+
+Tipi: `src/lib/demos/city-episode.ts` · validazione Zod: `src/lib/types/rl-episode.ts`.  
+Viewer Three.js: port di `Artifical_city/web/3d` in `src/components/demos/artificial-city/` (stesso `CityScene.applySnapshot`, feed da JSON invece che WebSocket).
 
 ## Deploy (GitHub + Vercel)
 
@@ -188,9 +236,10 @@ Modifica i dati del sito in [`src/config/site.config.ts`](src/config/site.config
 ## Script utili
 
 ```bash
-npm run dev          # dev server
-npm run build        # build produzione
-npm run start        # avvia build
-npm run lint         # ESLint
-npm run add-project  # aggiungi card progetto via API locale
+npm run dev                        # dev server
+npm run build                      # build produzione
+npm run start                      # avvia build
+npm run lint                       # ESLint
+npm run add-project                # aggiungi card progetto via API locale
+npm run sync-lighting-map-roadmap  # sync roadmap Lighting Map da GitHub
 ```

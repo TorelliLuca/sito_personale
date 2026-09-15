@@ -1,0 +1,16 @@
+{
+  "repo": "TorelliLuca/Lighting-map",
+  "branch": "main",
+  "projectJson": "content/projects/lighting-map.json",
+  "ignoreShas": [
+    "73336ca",
+    "24275ed"
+  ],
+  "ignoreMessagePatterns": [
+    "^docs$",
+    "README",
+    "^chore(\\b|:)",
+    "^Merge "
+  ],
+  "versionOverrides": {}
+}

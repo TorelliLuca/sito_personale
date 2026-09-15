@@ -1,6 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000">
-  <rect width="1600" height="1000" fill="#111827"/>
-  <path d="M120 780 C 420 420, 620 920, 920 520 S 1320 260, 1480 220" fill="none" stroke="#2563EB" stroke-width="8"/>
-  <circle cx="920" cy="520" r="24" fill="#2563EB"/>
-  <text x="80" y="90" fill="#f8fafc" font-family="Arial, sans-serif" font-size="42" font-weight="700">Training Path</text>
-</svg>
