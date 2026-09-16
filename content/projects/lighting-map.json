@@ -18,14 +18,40 @@
   ],
   "roadmap": [
     {
+      "version": "1.2.2",
+      "commitSha": "4e30cbc",
+      "title": {
+        "en": "v1.2.2",
+        "it": "v1.2.2"
+      },
+      "description": {
+        "en": "v1.2.2",
+        "it": "v1.2.2"
+      },
+      "date": "2026-09-11"
+    },
+    {
+      "version": "0.1.14",
+      "commitSha": "9ec2af7",
+      "title": {
+        "en": "Update dependencies, enhance testing setup, and improve component structure. Added Playwright and Vitest for testing, updated .gitignore for test artifacts, and refined routing and page titles in App.jsx. Enhanced InfoPanel with additional report handling and improved styling for better user experience.",
+        "it": "Update dependencies, enhance testing setup, and improve component structure. Added Playwright and Vitest for testing, updated .gitignore for test artifacts, and refined routing and page titles in App.jsx. Enhanced InfoPanel with additional report handling and improved styling for better user experience."
+      },
+      "description": {
+        "en": "Update dependencies, enhance testing setup, and improve component structure. Added Playwright and Vitest for testing, updated .gitignore for test artifacts, and refined routing and page titles in App.jsx. Enhanced InfoPanel with additional report handling and improved styling for better user experience.",
+        "it": "Update dependencies, enhance testing setup, and improve component structure. Added Playwright and Vitest for testing, updated .gitignore for test artifacts, and refined routing and page titles in App.jsx. Enhanced InfoPanel with additional report handling and improved styling for better user experience."
+      },
+      "date": "2026-08-11"
+    },
+    {
       "version": "1.2.1",
       "commitSha": "f371010",
       "title": {
-        "en": "Post-release polish",
+        "en": "v1.2.1",
         "it": "Rifiniture post-release"
       },
       "description": {
-        "en": "Minor fixes and cleanups applied right after v1.2.0, closing out the major update cycle.",
+        "en": "v1.2.1",
         "it": "Fix e sistemazioni minori applicati subito dopo la v1.2.0, in chiusura del ciclo di aggiornamento maggiore."
       },
       "date": "2026-08-04"
@@ -34,11 +60,11 @@
       "version": "1.2.0",
       "commitSha": "73e5d19",
       "title": {
-        "en": "Major update",
+        "en": "v1.2.0",
         "it": "Aggiornamento maggiore"
       },
       "description": {
-        "en": "Major app release after a long consolidation cycle: brings together the refactor, new authentication features, and UI improvements from the previous months.",
+        "en": "v1.2.0",
         "it": "Rilascio di una versione maggiore dell'app dopo un lungo ciclo di consolidamento: raccoglie il refactoring, le nuove funzionalità di autenticazione e i miglioramenti UI introdotti nei mesi precedenti."
       },
       "date": "2026-08-03",
