@@ -18,6 +18,19 @@
   ],
   "roadmap": [
     {
+      "version": "0.1.15",
+      "commitSha": "dbfcaf6",
+      "title": {
+        "en": "Enhance application with new features and updates. Added Radix UI components for dialogs, progress indicators, and tabs. Introduced new routes for Plant Status and TODO pages in App.jsx, along with corresponding components. Updated Vite configuration to include path aliasing. Improved styling in index.css for better UI consistency. Enhanced PrintControl component with new functionalities and fixed various bugs across components.",
+        "it": "Enhance application with new features and updates. Added Radix UI components for dialogs, progress indicators, and tabs. Introduced new routes for Plant Status and TODO pages in App.jsx, along with corresponding components. Updated Vite configuration to include path aliasing. Improved styling in index.css for better UI consistency. Enhanced PrintControl component with new functionalities and fixed various bugs across components."
+      },
+      "description": {
+        "en": "Enhance application with new features and updates. Added Radix UI components for dialogs, progress indicators, and tabs. Introduced new routes for Plant Status and TODO pages in App.jsx, along with corresponding components. Updated Vite configuration to include path aliasing. Improved styling in index.css for better UI consistency. Enhanced PrintControl component with new functionalities and fixed various bugs across components.",
+        "it": "Enhance application with new features and updates. Added Radix UI components for dialogs, progress indicators, and tabs. Introduced new routes for Plant Status and TODO pages in App.jsx, along with corresponding components. Updated Vite configuration to include path aliasing. Improved styling in index.css for better UI consistency. Enhanced PrintControl component with new functionalities and fixed various bugs across components."
+      },
+      "date": "2026-09-17"
+    },
+    {
       "version": "1.2.2",
       "commitSha": "4e30cbc",
       "title": {
